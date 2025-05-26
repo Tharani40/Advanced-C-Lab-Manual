@@ -16,15 +16,35 @@ Else
  
 Program:
 
-//type your code here
-df
+    #include <stdio.h>
+     
+    struct eligible {
+        int age;
+        char n[50];
+    };
+    
+    int main() {
+        struct eligible e;
+        scanf("%s", e.n);
+        scanf("%d", &e.age);
+    
+      if (e.age <= 6)
+          printf("Vaccine Eligibility: No\n");
+      else
+          printf("Vaccine Eligibility: Yes\n");
+  
+      printf("Name: %s\nAge: %d\n", e.n, e.age);
+  
+      return 0;
+    }
 
 Output:
 
-//paste your output here
+![444761751-070590aa-6c9e-45c2-981f-2d33e85ee4e9](https://github.com/user-attachments/assets/302f7c60-2039-4970-8937-0657690ab49a)
 
 
 Result:
+
 Thus, the program is verified successfully. 
 
 
@@ -44,20 +64,39 @@ Algorithm:
  
 Program:
 
-//type your code here
-
-
+    #include <stdio.h>
+    
+    struct numbers {
+       int a, b;
+    };
+    
+    struct numbers add(struct numbers n) {
+       struct numbers result;
+       result.a = n.a + n.b;
+       return result;
+    }
+  
+    int main() {
+       struct numbers n, sum;
+    
+     printf("Enter two numbers: ");
+     scanf("%d %d", &n.a, &n.b);
+  
+     sum = add(n);
+  
+     printf("Sum: %d\n", sum.a);
+  
+     return 0;
+  }
 
 
 Output:
 
-
-//paste your output here
-
-
+![444761998-ac023f58-4bff-417d-891e-cf3fab199577](https://github.com/user-attachments/assets/b1b0e885-1034-4f0c-984d-8ab676560f20)
 
 
 Result:
+
 Thus, the program is verified successfully
 
 
@@ -86,16 +125,37 @@ Use scanf to input the file name into the name array.
  
 Program:
 
-//type your code here
 
+    #include <stdio.h>
+    
+    int main() {
+      FILE *p;
+      char name[100];
+  
+      printf("Enter the file name: ");
+      scanf("%s", name);
+  
+      p = fopen(name, "w");
+  
+      if (p == NULL) {
+          printf("Error creating file.\n");
+          return 1;
+      }
+  
+      printf("File '%s' created successfully.\n", name);
+  
+      fclose(p);
+      printf("File closed successfully.\n");
+  
+      return 0;
+    }
 
 
 
 Output:
 
 
-//paste your output here
-
+![444762196-81a664cf-f54c-4b95-a519-f1935ca22eb0](https://github.com/user-attachments/assets/dc9f22dd-56b3-4da3-a142-498dc7cff8f3)
 
 
 
@@ -107,6 +167,7 @@ Output:
 
 
 Result:
+
 Thus, the program is verified successfully
  
 
@@ -133,22 +194,54 @@ Use scanf to input the file name into the name array and the number of strings i
  
 Program:
 
-//type your code here
 
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    
+    int main() {
+        char filename[100], text[1000];
+        FILE *file;
+  
+      printf("Enter filename: ");
+      scanf("%99s", filename);
+
+      file = fopen(filename, "w+");
+      if (!file) {
+          perror("File error");
+          return 1;
+      }
+  
+      printf("Enter text: ");
+      fgets(text, sizeof(text), stdin);
+      text[strcspn(text, "\n")] = 0;
+      fprintf(file, "%s\n", text);
+  
+      fprintf(file, "Appended text.\n");
+  
+      rewind(file);
+      printf("\nFile contents:\n");
+      char ch;
+      while ((ch = fgetc(file)) != EOF)
+          putchar(ch);
+      printf("\n");
+  
+      fclose(file);
+      return 0;
+    }
 
 
 
 Output:
 
 
-//paste your output here
-
-
+![444762423-d7200632-0a8a-4163-88f0-a2894334e9db](https://github.com/user-attachments/assets/88674e33-6f7d-49ec-afea-e77cc92c7557)
 
 
 
 
 Result:
+
 Thus, the program is verified successfully
 
 
@@ -187,15 +280,38 @@ Algorithm:
 
 Program:
 
-//type your code here
 
-
+  
+    #include <stdio.h>
+    struct Student {
+        char name[50];
+        int roll;
+        float marks;
+    };
+    
+    int main() {
+        struct Student s;
+        printf("Enter student name: ");
+        fgets(s.name, sizeof(s.name), stdin);
+  
+      printf("Enter roll number: ");
+      scanf("%d", &s.roll);
+  
+      printf("Enter marks: ");
+      scanf("%f", &s.marks);
+      printf("\n--- Student Details ---\n");
+      printf("Name       : %s", s.name);
+      printf("Roll No.   : %d\n", s.roll);
+      printf("Marks      : %.2f\n", s.marks);
+  
+      return 0;
+    }
 
 
 Output:
 
+![444762514-63ea7cca-0da4-4f0d-abfd-1bfbee11d1df](https://github.com/user-attachments/assets/1e166f07-f031-49c0-a7f2-216efe224a02)
 
-//paste your output here
 
 
 
@@ -203,4 +319,5 @@ Output:
 
 
 Result:
+
 Thus, the program is verified successfully
