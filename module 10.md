@@ -10,15 +10,44 @@ Algorithm:
  
 Program:
 
-//type your code here
-
+    struct Node{
+        char data; 
+        struct Node *next;
+    }*head;
+    
+    void search(char data)
+    {
+        char item=data;
+        int i=0,f=0;
+        struct Node*temp;
+        temp=head;
+        if(temp==NULL){
+            printf("Item not found");
+        }
+          else{
+            while(temp!=NULL){
+                if(temp->data==item){
+                    printf("item %c found at location %d",item,i+1);
+                
+                f=1;
+              }
+              i++;
+              temp=temp->next;      
+          }        
+      }
+      if(f==0)
+      {
+                  printf("Item not found");
+      }
+    }
+  
 Output:
 
-//paste your output here
-
+![444777037-6556110f-3d55-4307-84af-2fe5fe69b0b7](https://github.com/user-attachments/assets/1a6613bb-5073-4561-bf38-9672a1923c5a)
 
 
 Result:
+
 Thus, the program to search a given element in the given linked list is verified successfully.
 
 
@@ -34,14 +63,35 @@ Algorithm:
  
 Program:
 
-//type your code here
-
+    struct Node{
+        char data; 
+        struct Node *next;
+    }*head;
+    
+    void insert(char data)
+    {
+        struct Node *newnode,*temp;
+        newnode=(struct Node*)malloc(sizeof(struct Node));
+        newnode->data=data;
+        newnode->next=NULL;
+        if(head==NULL){
+            head=newnode;
+        }
+        else{
+            temp=head;
+            while(temp->next!=NULL){
+                temp=temp->next;
+            }
+            temp->next=newnode;
+        }
+        
+    }
 Output:
 
-//paste your output here
+ ![444777070-11f31c7e-35f0-477a-8ea6-79d141771aac](https://github.com/user-attachments/assets/b015dfbb-2076-42a0-bd7b-f1a2aaa17c4c)
 
- 
 Result:
+
 Thus, the program to insert a node in a linked list is verified successfully.
 
 
@@ -58,14 +108,29 @@ Algorithm:
  
 Program:
 
-//type your code here
-
+    struct Node
+    {
+        struct Node *prev;
+        struct Node *next;
+        int data;
+    }*head;
+    
+    void display()
+    {
+        struct Node*temp;
+        temp=head;
+        while(temp!=NULL){
+            printf("%d\n",temp->data);
+            temp=temp->next;
+        }        
+    }
 Output:
 
-//paste your output here
+![444777091-9591d2e4-afc4-48d6-9e71-4f219ca605a9](https://github.com/user-attachments/assets/a9311bfd-be17-40cc-a85c-8bbe77d37eb6)
 
 
 Result:
+
 Thus, the program to traverse a doubly linked list is verified successfully. 
 
 
@@ -83,14 +148,39 @@ Algorithm:
  
 Program:
 
-//type your code here
-
+      struct Node
+      {
+          float data;
+          struct Node *prev;
+          struct Node *next;
+      }*head;
+      
+      void insert(float data)
+      {
+          struct Node *temp,*newnode;
+          newnode=(struct Node*)malloc(sizeof(struct Node));
+          newnode->data=data;
+          newnode->next=NULL;
+          newnode->prev=NULL;
+          if(head==NULL){
+              head=newnode;
+          }
+          else{
+              temp=head;
+              while(temp->next!=NULL){
+                  temp=temp->next;
+              }
+              temp->next=newnode;
+              newnode->prev=temp;
+          }        
+      }
 Output:
 
-//paste your output here
+![444777122-0e6deed1-0706-4f8b-99fa-a5c563e1b61c](https://github.com/user-attachments/assets/4eb2ed88-a1c2-4d3c-8084-21c463fdf5d9)
 
 
 Result:
+
 Thus, the program to insert an element in doubly linked list is verified successfully.
 
 
@@ -124,21 +214,36 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 
 Program:
-
-//type your code here
+     struct Node
+     {
+         int data; 
+         struct Node *next;
+     }*head;
+     void delete()
+     {
+         struct Node *ptr;
+         if(head == NULL)
+         {
+             printf("List is empty\n");
+         }
+         else
+         {
+             ptr = head;
+             head = ptr->next;
+             free(ptr);
+             printf("Node deleted from the begining ...\n");
+         }
+     }
 
 Output:
 
-//paste your output here
+
+![444777152-9d601cbb-a243-48e3-8ae4-7f0e4519baf4](https://github.com/user-attachments/assets/7e2d23e9-5dea-46dc-a283-3097a115b0d7)
 
 
 
 
 
 Result:
+
 Thus, the function that deletes a given element from a linked list is verified successfully.
-
-
-
-
-
